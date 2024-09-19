@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GGA RDC - Accueil</title>
-    <script src="https://accounts.google.com/gsi/client" async defer></script> <!-- Bibliothèque Google API -->
     <script type="text/javascript" src="js/main.js"></script>
     <style>
         /* Styles globaux */
@@ -311,20 +310,9 @@
         <h2>Connexion</h2>
         <form id="loginForm">
             <div class="error" id="error"></div>
-            <input type="email" id="Email" placeholder="Email" required>
+            <input type="text" id="username" placeholder="Nom d'utilisateur" required>
             <input type="password" id="password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>
-            <div align="center">
-                    <p>Ou</p>
-            </div>
-
-            <!-- Bouton de connexion Google -->
-            <div id="g_id_onload"
-                 data-client_id="VOTRE_CLIENT_ID"
-                 data-callback="handleCredentialResponse">
-            <!-- Remplacez par votre client_id -->
-            </div>
-            <div class="g_id_signin" data-type="standard"></div>
         </form>
     </div>
 
@@ -350,12 +338,6 @@
                 alert('Formulaire soumis !');
             }
         });
-
-        // Fonction pour gérer la réponse de l'API Google
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-            // Envoyez le token au serveur pour vérifier l'utilisateur ou connectez l'utilisateur directement.
-        }
     </script>
 </body>
 </html>
