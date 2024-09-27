@@ -3,135 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assurance Santé - Accueil</title>
+    <title>GGA RDC - Assurance Santé</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers un fichier CSS externe -->
     <style>
+        /* Styles globaux */
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+            background-size: cover;
         }
+
         .navbar {
             display: flex;
             justify-content: space-between;
-            padding: 15px;
-            background: rgba(0, 77, 0, 0.8);
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.7);
             color: white;
         }
-        .navbar a {
-            color: white;
-            text-decoration: none;
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .menu {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .menu li {
             margin: 0 15px;
         }
-        .header {
-            text-align: center;
-            padding: 50px 0;
-            background: rgba(0, 127, 0, 0.9);
+
+        .navbar .menu a {
             color: white;
+            text-decoration: none;
+            transition: color 0.3s;
         }
-        .slider {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
+
+        .navbar .menu a:hover {
+            color: #980303;
         }
-        .slides {
-            display: none;
-            width: 100%;
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
         }
-        .content {
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 20px;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.8);
             padding: 20px;
-            max-width: 800px;
-            margin: auto;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 30%;
         }
+
+        .service h3 {
+            margin-bottom: 15px;
+        }
+
         .footer {
             text-align: center;
             padding: 15px;
-            background: rgba(0, 77, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
             color: white;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
-        .active {
-            display: block;
+
+        .footer a {
+            color: #980303;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #750202;
+        }
+
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service {
+                width: 80%;
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="navbar">
-        <div class="title">Assurance Santé</div>
-        <div>
-            <a href="#">Accueil</a>
-            <a href="#">Services</a>
-            <a href="#">Nous contacter</a>
-        </div>
-    </div>
-
-    <div class="header">
-        <h1>Bienvenue chez Assurance Santé</h1>
-        <p>Votre bien-être, notre priorité.</p>
-    </div>
-
-    <div class="slider">
-        <img class="slides active" src="img/image1.jpg" alt="Image 1">
-        <img class="slides" src="img/image2.jpg" alt="Image 2">
-        <img class="slides" src="img/image3.jpg" alt="Image 3">
-        <img class="slides" src="img/image4.jpg" alt="Image 4">
-        <img class="slides" src="img/image5.jpg" alt="Image 5">
-    </div>
-
-    <div class="content">
-        <h2>Nos Services</h2>
-        <p>Nous offrons des plans d'assurance adaptés à vos besoins :</p>
-        <ul>
-            <li>Assurance hospitalisation</li>
-            <li>Assurance maternité</li>
-            <li>Assistance médicale à l'étranger</li>
-            <li>Prévention et conseils santé</li>
-            <li>Remises sur les soins dentaires</li>
+        <div class="title">GGA RDC</div>
+        <ul class="menu">
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="about.php">Qui sommes-nous ?</a></li>
         </ul>
-        <h2>Pourquoi choisir notre assurance ?</h2>
-        <p>Avec des options flexibles, un service client exceptionnel et une couverture complète, nous sommes là pour vous.</p>
+    </div>
+
+    <div class="hero">
+        <h1>Bienvenue chez GGA RDC</h1>
+        <p>Votre cabinet de conseil et de gestion spécialisé dans les prestations de santé.</p>
+        <a href="contact.php" style="padding: 10px 20px; background-color: #980303; color: white; border-radius: 5px; text-decoration: none;">Contactez-nous</a>
+    </div>
+
+    <div class="services">
+        <div class="service">
+            <h3>Conseil en Assurance Santé</h3>
+            <p>Des conseils adaptés pour choisir la meilleure couverture santé.</p>
+        </div>
+        <div class="service">
+            <h3>Gestion des Prestations</h3>
+            <p>Une gestion efficace des demandes de prestations de santé.</p>
+        </div>
+        <div class="service">
+            <h3>Assistance Personnalisée</h3>
+            <p>Un accompagnement sur mesure pour tous vos besoins en santé.</p>
+        </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 Assurance Santé. Tous droits réservés.</p>
-        <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+        <p>&copy; 2024 GGA SA. Tous droits réservés.</p>
+        <p><a href="privacy.html">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
     </div>
-
-        <!-- connexion avec Google  -->
-        <div id="g_id_onload"
-            data-client_id="756990657985-tpbfnrknsk9qnd2tm223jbq900j0klo1.apps.googleusercontent.com"
-            data-context="signin"
-            data-ux_mode="popup"
-            data-login_uri="http://localhost"
-            data-auto_prompt="false">
-        </div>
-
-        <div class="g_id_signin"
-            data-type="standard"
-            data-shape="rectangular"
-            data-theme="filled_blue"
-            data-text="signin_with"
-            data-size="large"
-            data-logo_alignment="left">
-        </div>
-
-        <!-- connexion avec Google -->
-    <script>
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            const slides = document.getElementsByClassName("slides");
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            slides[slideIndex - 1].style.display = "block";  
-            setTimeout(showSlides, 3000); // Change image every 3 seconds
-        }
-    </script>
 </body>
 </html>
