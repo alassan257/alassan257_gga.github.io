@@ -213,13 +213,13 @@
     <div class="navbar">
         <div class="title">GGA RDC</div>
         <ul class="menu">
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.php">Accueil</a></li>
             <li><a href="#">Services</a></li>
-            <li><a href="about.html">Qui sommes-nous ?</a></li>
+            <li><a href="about.php">Qui sommes-nous ?</a></li>
         </ul>
         <div class="buttons">
-            <a href="index.html">Connexion</a>
-            <a href="inscription.html">Inscription</a>
+            <a href="index.php">Connexion</a>
+            <a href="inscription.php">Inscription</a>
         </div>
     </div>
 
