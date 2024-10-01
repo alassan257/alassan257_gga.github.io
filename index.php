@@ -158,7 +158,7 @@
  </div>
 
   <div class="hero">
-      <img src="bg.jpg" />
+      <img src="img/bg.jpg" />
       <div class="content">
           <h1>Bienvenue chez GGA RDC</h1>
           <p>Votre cabinet de conseil et de gestion spécialisé dans les prestations de santé.</p>
