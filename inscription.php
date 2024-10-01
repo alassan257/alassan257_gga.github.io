@@ -280,8 +280,8 @@
             <li><a href="about.php">Qui sommes-nous ?</a></li>
         </ul>
         <div class="buttons">
-            <a href="index.php">Connexion</a>
-            <a href="inscription.php">Inscription</a>
+            <a href="connexion.php">Connexion</a>
+            <!-- <a href="inscription.php">Inscription</a> -->
         </div>
     </div>
 

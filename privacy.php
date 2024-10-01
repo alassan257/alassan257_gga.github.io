@@ -162,15 +162,17 @@
         }
     </style>
 </head>
-<body>
-    <div class="navbar">
+<div class="navbar">
         <div class="title">GGA RDC</div>
         <ul class="menu">
             <li><a href="index.php">Accueil</a></li>
             <li><a href="#">Services</a></li>
             <li><a href="about.php">Qui sommes-nous ?</a></li>
-            <li><a href="privacy.php">Politique de Confidentialité</a></li>
         </ul>
+        <div class="buttons">
+            <a href="connexion.php">Connexion</a>
+            <!-- <a href="inscription.php">Inscription</a> -->
+        </div>
     </div>
 
     <div class="container">
