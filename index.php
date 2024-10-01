@@ -118,6 +118,18 @@
           color: #750202;
       }
 
+      .navbar .buttons a {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            background: #980303; /* Couleur de fond des boutons */
+            font-size: 14px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
       @media (max-width: 768px) {
           .services {
               flex-direction: column;
@@ -136,21 +148,22 @@
         <div class="title">GGA RDC</div>
         <ul class="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="#">Services</a></li>
+            <!-- <li><a href="#">Services</a></li> -->
             <li><a href="about.php">Qui sommes-nous ?</a></li>
         </ul>
         <div class="buttons">
             <a href="connexion.php">Connexion</a>
             <!-- <a href="inscription.php">Inscription</a> -->
         </div>
-    </div>
+ </div>
 
   <div class="hero">
-      <img src="bg.jpg" alt="Image de santé">
+      <img src="bg.jpg" />
       <div class="content">
           <h1>Bienvenue chez GGA RDC</h1>
           <p>Votre cabinet de conseil et de gestion spécialisé dans les prestations de santé.</p>
-          <a href="contact.php" style="padding: 10px 20px; background-color: #980303; color: white; border-radius: 5px; text-decoration: none;">Contactez-nous</a>
+          <a href="connexion.php" style="padding: 10px 20px; background-color: #980303; color: white; border-radius: 5px; text-decoration: none;">Connexion</a>
+          
       </div>
   </div>
 
