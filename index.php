@@ -145,7 +145,7 @@
 </head>
 <body>
 <div class="navbar">
-        <div class="title">GGA RDC</div>
+        <div class="title"><a href="index.php" style="text-decoration: none; color:#fff;">GGA RDC</a></div>
         <ul class="menu">
             <li><a href="index.php">Accueil</a></li>
             <!-- <li><a href="#">Services</a></li> -->

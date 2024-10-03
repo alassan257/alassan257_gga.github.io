@@ -210,18 +210,18 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <div class="title">GGA RDC</div>
+<div class="navbar">
+        <div class="title"><a href="index.php" style="text-decoration: none; color:#fff;">GGA RDC</a></div>
         <ul class="menu">
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="#">Services</a></li>
+            <!-- <li><a href="#">Services</a></li> -->
             <li><a href="about.php">Qui sommes-nous ?</a></li>
         </ul>
         <div class="buttons">
-            <a href="index.php">Connexion</a>
-            <a href="inscription.php">Inscription</a>
+            <a href="connexion.php">Connexion</a>
+            <!-- <a href="inscription.php">Inscription</a> -->
         </div>
-    </div>
+ </div>
 
     <div class="container">
         <h1>Qui sommes-nous ?</h1>
@@ -251,7 +251,7 @@
 
     <footer>
         <p>&copy; 2024 GGA SA. Tous droits réservés.</p>
-        <p><a href="privacy.html">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+        <p><a href="privacy.php">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
     </footer>
 </body>
 </html>
