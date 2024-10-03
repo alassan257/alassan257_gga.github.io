@@ -1,6 +1,25 @@
 <?php
 
-echo "salut"
+require_once 'config/config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['mot_de_passe'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
+        header("Location: profile.php");
+        exit();
+    } else {
+        $error_message = "Email ou mot de passe incorrect.";
+    }
+}
+
 
 ?>
 
@@ -335,26 +354,60 @@ echo "salut"
         <p><a href="privacy.html">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
     </div>
 
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#loginForm').on('submit', function(e) {
+        e.preventDefault();
 
-            const username = document.getElementById('Email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const errorElement = document.getElementById('error');
+        var email = $('#Email').val().trim();
+        var password = $('#password').val().trim();
+        var $errorElement = $('#error');
 
-            if (username === '' || password === '') {
-                errorElement.textContent = 'Tous les champs doivent être remplis.';
-                errorElement.style.display = 'block';
-            } else {
-                errorElement.style.display = 'none';
-                alert('Formulaire soumis !');
-            }
-        });
-
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
+        if (email === '' || password === '') {
+            $errorElement.text('Tous les champs doivent être remplis.').slideDown();
+        } else {
+            $errorElement.slideUp();
+            
+            // Simulation d'une requête AJAX (à remplacer par votre véritable appel AJAX)
+            $.ajax({
+                url: 'votre_script_de_connexion.php',
+                method: 'POST',
+                data: {
+                    email: email,
+                    password: password
+                },
+                success: function(response) {
+                    // Simulons une réponse réussie
+                    if (response === 'success') {
+                        $errorElement.removeClass('error').addClass('success')
+                            .text('Connexion réussie ! Redirection...').slideDown();
+                        setTimeout(function() {
+                            window.location.href = 'profile.php';
+                        }, 2000);
+                    } else {
+                        $errorElement.text('Email ou mot de passe incorrect.').slideDown();
+                    }
+                },
+                error: function() {
+                    $errorElement.text('Une erreur est survenue. Veuillez réessayer.').slideDown();
+                }
+            });
         }
-    </script>
+    });
+
+    // Animation des champs de saisie
+    $('input').focus(function() {
+        $(this).animate({ borderColor: '#980303' }, 300);
+    }).blur(function() {
+        $(this).animate({ borderColor: '#ddd' }, 300);
+    });
+});
+
+function handleCredentialResponse(response) {
+    console.log("Encoded JWT ID token: " + response.credential);
+    // Ajoutez ici la logique pour gérer la réponse de Google
+}
+</script>
 </body>
 </html>
