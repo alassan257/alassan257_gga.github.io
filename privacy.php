@@ -160,6 +160,20 @@
                 font-size: 22px;
             }
         }
+
+
+
+        .navbar .buttons a {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            background: #980303; /* Couleur de fond des boutons */
+            font-size: 14px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 <div class="navbar">
