@@ -61,14 +61,6 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-// Connexion MySQL (ancienne méthode, déconseillée)
-$connexion = mysql_connect(DB_HOST, DB_USER, DB_PASS);
-if (!$connexion) {
-    die("Erreur de connexion à la base de données : " . mysql_error());
-}
-$db_selected = mysql_select_db(DB_NAME, $connexion);
-if (!$db_selected) {
-    die("Erreur lors de la sélection de la base de données : " . mysql_error());
-}
+
 
 ?>

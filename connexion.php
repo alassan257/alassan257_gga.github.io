@@ -316,17 +316,17 @@ echo "salut"
             <h1>GGA Cloud</h1>
         </div>
         <h2>Connexion</h2>
-        <form id="loginForm">
+        <form id="loginForm" align="center">
             <div class="error" id="error"></div>
             <input type="email" id="Email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>
-            <div align="center">
+            <!-- <div align="center">
                 <p>Ou</p>
-            </div>
+            </div> -->
 
-            <div id="g_id_onload" data-client_id="VOTRE_CLIENT_ID" data-callback="handleCredentialResponse"></div>
-            <div class="g_id_signin" data-type="standard"></div>
+            <!-- <div id="g_id_onload" data-client_id="VOTRE_CLIENT_ID" data-callback="handleCredentialResponse"></div>
+            <div class="g_id_signin" data-type="standard"></div> -->
         </form>
     </div>
 
@@ -352,9 +352,9 @@ echo "salut"
             }
         });
 
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-        }
+        // function handleCredentialResponse(response) {
+        //     console.log("Encoded JWT ID token: " + response.credential);
+        // }
     </script>
 </body>
 </html>
