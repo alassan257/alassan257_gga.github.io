@@ -1,0 +1,35 @@
+[33mcommit 220a9ead2031dbc21d17db6235a7694a9136abbb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: alassan257 <alassan257@gmail.com>
+Date:   Fri Oct 4 10:51:29 2024 +0100
+
+    ...
+    Mise à jour de la gestion des utilisateurs
+    
+    - Amélioration de la fonction d'authentification
+    - Ajout de la validation des données utilisateur
+    - Correction de bugs mineurs dans le processus d'inscription
+
+[33mcommit ecd43f4bc16eb31c18ea34ee03891a5cdca972a3[m
+Author: alassan257 <alassan257@gmail.com>
+Date:   Fri Oct 4 10:35:07 2024 +0100
+
+    ...
+
+[33mcommit a7c8ed4486608edfa4f6add1bc377bf53a568abe[m
+Merge: d043f7f d204cb8
+Author: alassan257 <alassan257@gmail.com>
+Date:   Fri Oct 4 10:29:02 2024 +0100
+
+    ...
+
+[33mcommit d043f7f9be6f59d8d48c58d2a32777995a16b0d9[m
+Author: alassan257 <alassan257@gmail.com>
+Date:   Fri Oct 4 10:20:47 2024 +0100
+
+    ...
+
+[33mcommit d204cb8524e8573cc681832e29f3e0668c650a75[m
+Author: ALassan KSHD <alassan257@gmail.com>
+Date:   Thu Oct 3 22:52:40 2024 +0100
+
+    ...
