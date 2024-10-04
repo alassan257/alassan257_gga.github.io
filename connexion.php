@@ -1,10 +1,3 @@
-<?php
-
-
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -50,12 +43,10 @@
             <div class="g_id_signin" data-type="standard"></div> -->
         </form>
     </div>
-
-    <div class="footer">
-        <p>&copy; 2024 GGA SA. Tous droits réservés.</p>
-        <p><a href="privacy.html">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
-    </div>
-
+<?php
+    require_once 'page_split/footer.php';
+?>
+    
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
