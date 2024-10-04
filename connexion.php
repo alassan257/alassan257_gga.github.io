@@ -1,6 +1,25 @@
 <?php
 
-echo "salut"
+require_once 'config/config.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['mot_de_passe'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_email'] = $user['email'];
+        header("Location: profile.php");
+        exit();
+    } else {
+        $error_message = "Email ou mot de passe incorrect.";
+    }
+}
+
 
 ?>
 
@@ -336,70 +355,25 @@ echo "salut"
     </div>
 
     <script>
-        // document.getElementById('loginForm').addEventListener('submit', function(event) {
-        //     event.preventDefault();
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-        //     const username = document.getElementById('Email').value.trim();
-        //     const password = document.getElementById('password').value.trim();
-        //     const errorElement = document.getElementById('error');
+            const username = document.getElementById('Email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorElement = document.getElementById('error');
 
-        //     if (username === '' || password === '') {
-        //         errorElement.textContent = 'Tous les champs doivent être remplis.';
-        //         errorElement.style.display = 'block';
-        //     } else {
-        //         errorElement.style.display = 'none';
-        //         alert('Formulaire soumis !');
-        //     }
-        // });
-
-        // function handleCredentialResponse(response) {
-        //     console.log("Encoded JWT ID token: " + response.credential);
-        // }
-
-
-
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const email = document.getElementById('Email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const errorElement = document.getElementById('error');
-
-        if (email === '' || password === '') {
-            errorElement.textContent = 'Tous les champs doivent être remplis.';
-            errorElement.style.display = 'block';
-            return;
-        }
-
-        // Création de l'objet FormData pour envoyer les données
-        const formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
-
-        // Requête AJAX
-        fetch('controllers/login_controller.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                // Connexion réussie
-                window.location.href = 'profile.php'; // Redirection vers le profile
-            } else {
-                // Affichage du message d'erreur
-                errorElement.textContent = data.message;
+            if (username === '' || password === '') {
+                errorElement.textContent = 'Tous les champs doivent être remplis.';
                 errorElement.style.display = 'block';
+            } else {
+                errorElement.style.display = 'none';
+                alert('Formulaire soumis !');
             }
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-            errorElement.textContent = 'Une erreur est survenue. Veuillez réessayer.';
-            errorElement.style.display = 'block';
         });
-    });
 
-   
+        function handleCredentialResponse(response) {
+            console.log("Encoded JWT ID token: " + response.credential);
+        }
     </script>
 </body>
 </html>
