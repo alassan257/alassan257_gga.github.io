@@ -321,12 +321,12 @@ echo "salut"
             <input type="email" id="Email" placeholder="Email" required>
             <input type="password" id="password" placeholder="Mot de passe" required>
             <button type="submit">Se connecter</button>
-            <div align="center">
+            <!-- <div align="center">
                 <p>Ou</p>
             </div>
 
             <div id="g_id_onload" data-client_id="VOTRE_CLIENT_ID" data-callback="handleCredentialResponse"></div>
-            <div class="g_id_signin" data-type="standard"></div>
+            <div class="g_id_signin" data-type="standard"></div> -->
         </form>
     </div>
 
@@ -336,25 +336,70 @@ echo "salut"
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // document.getElementById('loginForm').addEventListener('submit', function(event) {
+        //     event.preventDefault();
 
-            const username = document.getElementById('Email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const errorElement = document.getElementById('error');
+        //     const username = document.getElementById('Email').value.trim();
+        //     const password = document.getElementById('password').value.trim();
+        //     const errorElement = document.getElementById('error');
 
-            if (username === '' || password === '') {
-                errorElement.textContent = 'Tous les champs doivent être remplis.';
-                errorElement.style.display = 'block';
-            } else {
-                errorElement.style.display = 'none';
-                alert('Formulaire soumis !');
-            }
-        });
+        //     if (username === '' || password === '') {
+        //         errorElement.textContent = 'Tous les champs doivent être remplis.';
+        //         errorElement.style.display = 'block';
+        //     } else {
+        //         errorElement.style.display = 'none';
+        //         alert('Formulaire soumis !');
+        //     }
+        // });
 
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
+        // function handleCredentialResponse(response) {
+        //     console.log("Encoded JWT ID token: " + response.credential);
+        // }
+
+
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('Email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorElement = document.getElementById('error');
+
+        if (email === '' || password === '') {
+            errorElement.textContent = 'Tous les champs doivent être remplis.';
+            errorElement.style.display = 'block';
+            return;
         }
+
+        // Création de l'objet FormData pour envoyer les données
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('password', password);
+
+        // Requête AJAX
+        fetch('controllers/login_controller.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Connexion réussie
+                window.location.href = 'profile.php'; // Redirection vers le profile
+            } else {
+                // Affichage du message d'erreur
+                errorElement.textContent = data.message;
+                errorElement.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            errorElement.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+            errorElement.style.display = 'block';
+        });
+    });
+
+   
     </script>
 </body>
 </html>

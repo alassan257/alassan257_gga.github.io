@@ -318,33 +318,88 @@
     </div>
 
     <script>
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        // document.getElementById('registerForm').addEventListener('submit', function(event) {
+        //     event.preventDefault();
 
-            const username = document.getElementById('username').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirmPassword').value.trim();
-            const errorElement = document.getElementById('error');
+        //     const username = document.getElementById('username').value.trim();
+        //     const email = document.getElementById('email').value.trim();
+        //     const password = document.getElementById('password').value.trim();
+        //     const confirmPassword = document.getElementById('confirmPassword').value.trim();
+        //     const errorElement = document.getElementById('error');
 
-            if (username === '' || email === '' || password === '' || confirmPassword === '') {
-                errorElement.textContent = 'Tous les champs doivent être remplis.';
-                errorElement.style.display = 'block';
-            } else if (password !== confirmPassword) {
-                errorElement.textContent = 'Les mots de passe ne correspondent pas.';
-                errorElement.style.display = 'block';
-            } else {
-                errorElement.style.display = 'none';
-                // Vous pouvez ajouter ici le code pour envoyer les données au serveur ou effectuer d'autres actions
-                alert('Inscription réussie !');
-            }
-        });
+        //     if (username === '' || email === '' || password === '' || confirmPassword === '') {
+        //         errorElement.textContent = 'Tous les champs doivent être remplis.';
+        //         errorElement.style.display = 'block';
+        //     } else if (password !== confirmPassword) {
+        //         errorElement.textContent = 'Les mots de passe ne correspondent pas.';
+        //         errorElement.style.display = 'block';
+        //     } else {
+        //         errorElement.style.display = 'none';
+        //         // Vous pouvez ajouter ici le code pour envoyer les données au serveur ou effectuer d'autres actions
+        //         alert('Inscription réussie !');
+        //     }
+        // });
 
-        // Fonction pour gérer la réponse de l'API Google
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-            // Envoyez le token au serveur pour vérifier l'utilisateur ou connectez l'utilisateur directement.
+        // // Fonction pour gérer la réponse de l'API Google
+        // function handleCredentialResponse(response) {
+        //     console.log("Encoded JWT ID token: " + response.credential);
+        //     // Envoyez le token au serveur pour vérifier l'utilisateur ou connectez l'utilisateur directement.
+        // }
+
+
+
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const nom = document.getElementById('username').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+        const errorElement = document.getElementById('error');
+
+        if (nom === '' || email === '' || password === '' || confirmPassword === '') {
+            errorElement.textContent = 'Tous les champs doivent être remplis.';
+            errorElement.style.display = 'block';
+            return;
         }
+
+        if (password !== confirmPassword) {
+            errorElement.textContent = 'Les mots de passe ne correspondent pas.';
+            errorElement.style.display = 'block';
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('nom', nom);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('confirm_password', confirmPassword);
+
+        fetch('controllers/signup_controller.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Inscription réussie !');
+                window.location.href = 'connexion.php';
+            } else {
+                errorElement.textContent = data.message;
+                errorElement.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur:', error);
+            errorElement.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+            errorElement.style.display = 'block';
+        });
+    });
+
+    function handleCredentialResponse(response) {
+        console.log("Encoded JWT ID token: " + response.credential);
+        // Ici, vous pouvez ajouter le code pour gérer l'inscription via Google
+    }
     </script>
 </body>
 </html>
