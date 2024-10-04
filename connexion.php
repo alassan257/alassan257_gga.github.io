@@ -371,9 +371,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
 
-        function handleCredentialResponse(response) {
-            console.log("Encoded JWT ID token: " + response.credential);
-        }
+        // function handleCredentialResponse(response) {
+        //     console.log("Encoded JWT ID token: " + response.credential);
+        // }
     </script>
 </body>
 </html>
